@@ -22,12 +22,8 @@ if (minNumber > maxNumber){
 
 condition = confirm(`Should I skip even numbers?`);
 let sum = 0;
-for(let i = minNumber; i<= maxNumber; i++){
-	if(i%2){
-		sum +=i;
-	} else {
-		if(!condition) sum +=i;
-	}
+for(let i = minNumber; i<= maxNumber; i++){	
+	sum += (!condition || i%2) ? i : 0;
 };
 console.log(`min number = ${minNumber}; max number = ${maxNumber}; sum = ${sum}`);
 
