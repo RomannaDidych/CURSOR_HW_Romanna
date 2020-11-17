@@ -21,7 +21,14 @@ const calculatePower = (num, pow) => {
 	};
 	return result;
 };
- 
+
+const formateName = (name) => {	
+	const capital = name.charAt(0).toUpperCase();
+	return capital.concat(name.toLowerCase().slice(1));
+};
+
 console.log(`
 function №1 getMaxDigit(865513): ${getMaxDigit(865513)};
-function №2 calculatePower(8,3): ${calculatePower(8,3)}`);
+function №2 calculatePower(8,3): ${calculatePower(8,3)};
+function №3 formateName('cUrSOr'): ${formateName('cUrSOr')};
+`);
