@@ -3,12 +3,12 @@ let maxNumber;
 
 do {
 	minNumber = prompt(`Please, enter a first integer number`, '0')	
-} while(!Number.isInteger(+minNumber) || minNumber === null);
+} while(!Number.isInteger(+minNumber) || !minNumber);
 minNumber = +minNumber;
 
 do{
 	maxNumber = +prompt(`Please, enter a second integer number`, '0')
-} while(!Number.isInteger(+maxNumber) || maxNumber === null);
+} while(!Number.isInteger(+maxNumber) || !maxNumber);
 maxNumber = +maxNumber;
 
 if (minNumber > maxNumber){
