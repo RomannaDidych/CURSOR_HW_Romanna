@@ -1,18 +1,15 @@
-let minNumber = (prompt(`Please, enter a first integer number`));
-let condition = isNaN(minNumber) || minNumber === null || minNumber === '';
-while (condition){
-	minNumber = (prompt(`Uppps!!! You did not enter a number.\n Please enter a first integer number`));
-	condition = isNaN(minNumber) || minNumber === null || minNumber === '';
-};
-minNumber = parseInt(minNumber);
+let minNumber;
+let maxNumber;
 
-let maxNumber = (prompt(`Please, enter a second integer number`));
-condition = isNaN(maxNumber) || maxNumber === null || maxNumber === '';
-while (condition){
-	maxNumber = parseInt(prompt(`Uppps!!! You did not enter a number.\n Please enter a second integer number`));
-	condition = isNaN(maxNumber) || maxNumber === null || maxNumber === '';
-};
-maxNumber = parseInt(maxNumber);
+do {
+	minNumber = prompt(`Please, enter a first integer number`, '0')
+} while(!Number.isInteger(+minNumber) || minNumber === null);
+minNumber = +minNumber;
+
+do{
+	maxNumber = prompt(`Please, enter a second integer number`, '0')
+} while(!Number.isInteger(+maxNumber) || maxNumber === null);
+maxNumber = +maxNumber;
 
 if (minNumber > maxNumber){
 	const temp = minNumber;
@@ -20,10 +17,17 @@ if (minNumber > maxNumber){
 	maxNumber = temp;
 };
 
-condition = confirm(`Should I skip even numbers?`);
+const condition = confirm(`Should I skip even numbers?`);
 let sum = 0;
 for(let i = minNumber; i<= maxNumber; i++){	
-	sum += (!condition || i%2) ? i : 0;
+	if(!condition){
+		sum += i;
+	} else {
+		(i%2) ? sum += i : sum += 0;
+	}
 };
-console.log(`min number = ${minNumber}; max number = ${maxNumber}; sum = ${sum}`);
+console.log(`min number = ${minNumber};  max number = ${maxNumber};  skipped even numbers: ${condition};  sum = ${sum}`);
+
+
+
 
