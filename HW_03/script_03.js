@@ -27,8 +27,19 @@ const formateName = (name) => {
 	return capital.concat(name.toLowerCase().slice(1));
 };
 
+const countSalaryWithoutTax = (salary, tax) => {
+	let sumTax = 0;	
+	for(let i = 0; i < tax.length; i++){		
+		let percentage = parseFloat(tax[i]);		
+		sumTax += percentage;
+	};
+	return salary - salary*sumTax/100;
+}
+//console.log(countSalaryWithoutTax(1000,['18%','1.5%']));
+
 console.log(`
 function №1 getMaxDigit(865513): ${getMaxDigit(865513)};
 function №2 calculatePower(8,3): ${calculatePower(8,3)};
 function №3 formateName('cUrSOr'): ${formateName('cUrSOr')};
+function №4 countSalaryWithoutTax(1000,['18%','1.5%']): ${countSalaryWithoutTax(1000,['18%','1.5%'])};
 `);
