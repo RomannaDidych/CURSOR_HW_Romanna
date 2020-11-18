@@ -17,16 +17,16 @@ if (minNumber > maxNumber){
 	maxNumber = temp;
 };
 
-const condition = confirm(`Should I skip even numbers?`);
+const skip = confirm(`Should I skip even numbers?`);
 let sum = 0;
 for(let i = minNumber; i<= maxNumber; i++){	
-	if(!condition){
-		sum += i;
+	if(skip && i%2 === 0){
+		continue;
 	} else {
-		(i%2) ? sum += i : sum += 0;
+		sum += i;
 	}
 };
-console.log(`min number = ${minNumber};  max number = ${maxNumber};  skipped even numbers: ${condition};  sum = ${sum}`);
+console.log(`min number = ${minNumber};  max number = ${maxNumber};  skipped even numbers: ${skip};  sum = ${sum}`);
 
 
 
