@@ -35,11 +35,17 @@ const countSalaryWithoutTax = (salary, tax) => {
 	};
 	return salary - salary*sumTax/100;
 }
-//console.log(countSalaryWithoutTax(1000,['18%','1.5%']));
+
+const getRandomNumber = (min, max) => {
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 
 console.log(`
 function №1 getMaxDigit(865513): ${getMaxDigit(865513)};
 function №2 calculatePower(8,3): ${calculatePower(8,3)};
 function №3 formateName('cUrSOr'): ${formateName('cUrSOr')};
 function №4 countSalaryWithoutTax(1000,['18%','1.5%']): ${countSalaryWithoutTax(1000,['18%','1.5%'])};
+function №5 getRandomNumber(2,8): ${getRandomNumber(2,8)};
 `);
+
