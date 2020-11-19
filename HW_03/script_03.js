@@ -51,6 +51,21 @@ const countLetter = (letter, str) =>{
 	return counter;
 }
 
+const convertCurrency = (cash, rate) =>{	
+	let convertedCash;
+	if(cash.toLowerCase().includes('uah')) {
+		convertedCash = (parseFloat(cash) / rate).toFixed(2);		
+		return `${convertedCash}UAH`;
+	}; 
+	if(cash.includes('$')) {
+		convertedCash = (parseFloat(cash) * rate).toFixed(2);		
+		return `${convertedCash}$`;
+	} else {
+		console.log (`Sorry! You can't convert your currency. We convert $ or UAH only.`);
+	};
+};
+
+
 
 console.log(`
 function №1 getMaxDigit(865513): ${getMaxDigit(865513)};
@@ -59,5 +74,6 @@ function №3 formateName('cUrSOr'): ${formateName('cUrSOr')};
 function №4 countSalaryWithoutTaxes(1000,'18%','1.5%','20%'): ${countSalaryWithoutTaxes(1000,'18%','1.5%','20%')};
 function №5 getRandomNumber(2,8): ${getRandomNumber(2,8)};
 function №6 countLetter("А", "абрАкадаБРА"): ${countLetter("А", "абрАкадаБРА")};
+function №7 convertCurrency('1500 UAH', 28.57): ${convertCurrency('1500 UAH', 28.57)};
 `);
 
