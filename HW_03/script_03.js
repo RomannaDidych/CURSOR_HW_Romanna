@@ -65,6 +65,29 @@ const convertCurrency = (cash, rate) =>{
 	};
 };
 
+const  getRandomPassword = (length = 8) => {
+	let password = [];
+	for (let i = 0; i<length; i++){
+		//let randomNumber = Math.floor(Math.random() * 10);
+		password.push(Math.floor(Math.random() * 10));
+	};
+	return password.join('');
+}
+
+const deleteLetters = (letter, str) => {
+	const arr = str.toLowerCase().split('');
+	let newArr = [];
+	for( let item of arr){
+		if(item !== letter) newArr.push(item)
+	}	
+	return newArr.join('');
+};
+
+const isPalyndrom = (str) =>{
+	strWithoutSpace = deleteLetters(' ', str);
+	reverseStr = strWithoutSpace.split('').reverse().join('');
+	return strWithoutSpace === reverseStr;
+};
 
 
 console.log(`
@@ -75,5 +98,8 @@ function №4 countSalaryWithoutTaxes(1000,'18%','1.5%','20%'): ${countSalaryWit
 function №5 getRandomNumber(2,8): ${getRandomNumber(2,8)};
 function №6 countLetter("А", "абрАкадаБРА"): ${countLetter("А", "абрАкадаБРА")};
 function №7 convertCurrency('1500 UAH', 28.57): ${convertCurrency('1500 UAH', 28.57)};
+function №8 getRandomPassword(5): ${getRandomPassword(5)};
+function №9 deleteLetters('a','ayuiaramaneaea'): ${deleteLetters('a','ayuiaramaneaea')};
+function №10 isPalyndrom('Я несу гусеня'): ${isPalyndrom('Я несу гусеня')};
 `);
 
