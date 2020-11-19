@@ -78,16 +78,23 @@ const deleteLetters = (letter, str) => {
 	const arr = str.toLowerCase().split('');
 	let newArr = [];
 	for( let item of arr){
-		if(item !== letter) newArr.push(item)
+		if(item !== letter.toLowerCase()) newArr.push(item)
 	}	
 	return newArr.join('');
 };
 
-const isPalyndrom = (str) =>{
-	strWithoutSpace = deleteLetters(' ', str);
-	reverseStr = strWithoutSpace.split('').reverse().join('');
+const isPalyndrom = (str) => {
+	const strWithoutSpace = deleteLetters(' ', str);
+	const reverseStr = strWithoutSpace.split('').reverse().join('');
 	return strWithoutSpace === reverseStr;
 };
+
+const deleteDuplicateLetter = (str) => {
+
+	return str;	
+}
+
+console.log(deleteDuplicateLetter('Бісквіт був дуже ніжним'));
 
 
 console.log(`
