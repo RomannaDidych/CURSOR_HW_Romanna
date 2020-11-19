@@ -7,15 +7,15 @@ const getMaxDigit = number => {
 	return maxDigit;
 }
 
-const calculatePower = (num, pow) => {
+const calculatePower = (num, exp) => {
 	let result = 1;	
-	if (pow === 0) return result;
-	if (pow > 0){
-		for (let i = 1; i<=pow; i++){
+	if (exp === 0) return result;
+	if (exp > 0){
+		for (let i = 1; i<=exp; i++){
 			result *= num; 
 		}
 	} else {		
-		for (let i = 1; i<=Math.abs(pow); i++){
+		for (let i = 1; i<=Math.abs(exp); i++){
 			result *= 1 / num;			 
 		}
 	};
@@ -23,17 +23,17 @@ const calculatePower = (num, pow) => {
 };
 
 const formateName = (name) => {	
-	const capital = name.charAt(0).toUpperCase();
-	return capital.concat(name.toLowerCase().slice(1));
+	/*const capital = name.charAt(0).toUpperCase();
+	return capital.concat(name.toLowerCase().slice(1));*/
+	return name.charAt(0).toUpperCase() + name.toLowerCase().slice(1);
 };
 
-const countSalaryWithoutTax = (salary, tax) => {
-	let sumTax = 0;	
-	for(let i = 0; i < tax.length; i++){		
-		let percentage = parseFloat(tax[i]);		
-		sumTax += percentage;
+const countSalaryWithoutTaxes = (salary, ...taxes) => {
+	let sumTaxes = 0;	
+	for(let tax of taxes){						
+		sumTaxes += parseFloat(tax);		
 	};
-	return salary - salary*sumTax/100;
+	return salary - salary*sumTaxes/100;
 }
 
 const getRandomNumber = (min, max) => {
@@ -45,7 +45,7 @@ console.log(`
 function №1 getMaxDigit(865513): ${getMaxDigit(865513)};
 function №2 calculatePower(8,3): ${calculatePower(8,3)};
 function №3 formateName('cUrSOr'): ${formateName('cUrSOr')};
-function №4 countSalaryWithoutTax(1000,['18%','1.5%']): ${countSalaryWithoutTax(1000,['18%','1.5%'])};
+function №4 countSalaryWithoutTaxes(1000,'18%','1.5%','20%'): ${countSalaryWithoutTaxes(1000,'18%','1.5%','20%')};
 function №5 getRandomNumber(2,8): ${getRandomNumber(2,8)};
 `);
 
