@@ -40,6 +40,17 @@ const getRandomNumber = (min, max) => {
 	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+const countLetter = (letter, str) =>{
+	const arr = str.toLowerCase().split('');
+	let counter = 0;
+	for (let item of arr){
+		if(item === letter.toLowerCase()){			
+		 	counter += 1;
+		 };
+	};
+	return counter;
+}
+
 
 console.log(`
 function №1 getMaxDigit(865513): ${getMaxDigit(865513)};
@@ -47,5 +58,6 @@ function №2 calculatePower(8,3): ${calculatePower(8,3)};
 function №3 formateName('cUrSOr'): ${formateName('cUrSOr')};
 function №4 countSalaryWithoutTaxes(1000,'18%','1.5%','20%'): ${countSalaryWithoutTaxes(1000,'18%','1.5%','20%')};
 function №5 getRandomNumber(2,8): ${getRandomNumber(2,8)};
+function №6 countLetter("А", "абрАкадаБРА"): ${countLetter("А", "абрАкадаБРА")};
 `);
 
