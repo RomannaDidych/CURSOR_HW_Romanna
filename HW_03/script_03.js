@@ -23,8 +23,6 @@ const calculatePower = (num, exp) => {
 };
 
 const formateName = (name) => {	
-	/*const capital = name.charAt(0).toUpperCase();
-	return capital.concat(name.toLowerCase().slice(1));*/
 	return name.charAt(0).toUpperCase() + name.toLowerCase().slice(1);
 };
 
@@ -67,8 +65,7 @@ const convertCurrency = (cash, rate) =>{
 
 const  getRandomPassword = (length = 8) => {
 	let password = [];
-	for (let i = 0; i<length; i++){
-		//let randomNumber = Math.floor(Math.random() * 10);
+	for (let i = 0; i<length; i++){		
 		password.push(Math.floor(Math.random() * 10));
 	};
 	return password.join('');
@@ -100,9 +97,6 @@ const deleteDuplicateLetter = (str) => {
 	}
 	return result;	
 }
-
-//console.log(deleteDuplicateLetter('Бісквіт був дуже ніжним'));
-
 
 console.log(`
 function №1 getMaxDigit(865513): ${getMaxDigit(865513)};
