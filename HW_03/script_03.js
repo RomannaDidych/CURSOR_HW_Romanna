@@ -90,11 +90,18 @@ const isPalyndrom = (str) => {
 };
 
 const deleteDuplicateLetter = (str) => {
-
-	return str;	
+	let tempStr = deleteLetters(' ', str);
+	let result = ''
+	for (let i = 0; i < tempStr.length; i++){
+		let currentLetter = tempStr[i];		
+		if(tempStr.indexOf(currentLetter) === tempStr.lastIndexOf(currentLetter)){			
+			result += currentLetter;
+		}
+	}
+	return result;	
 }
 
-console.log(deleteDuplicateLetter('Бісквіт був дуже ніжним'));
+//console.log(deleteDuplicateLetter('Бісквіт був дуже ніжним'));
 
 
 console.log(`
@@ -108,5 +115,6 @@ function №7 convertCurrency('1500 UAH', 28.57): ${convertCurrency('1500 UAH', 
 function №8 getRandomPassword(5): ${getRandomPassword(5)};
 function №9 deleteLetters('a','ayuiaramaneaea'): ${deleteLetters('a','ayuiaramaneaea')};
 function №10 isPalyndrom('Я несу гусеня'): ${isPalyndrom('Я несу гусеня')};
+function №11 deleteDuplicateLetter('Бісквіт був дуже ніжним'): ${deleteDuplicateLetter('Бісквіт був дуже ніжним')};
 `);
 
