@@ -53,11 +53,11 @@ const convertCurrency = (cash, rate) =>{
 	let convertedCash;
 	if(cash.toLowerCase().includes('uah')) {
 		convertedCash = (parseFloat(cash) / rate).toFixed(2);		
-		return `${convertedCash}UAH`;
+		return `${convertedCash}$`;
 	}; 
 	if(cash.includes('$')) {
 		convertedCash = (parseFloat(cash) * rate).toFixed(2);		
-		return `${convertedCash}$`;
+		return `${convertedCash}UAH`;
 	} else {
 		console.log (`Sorry! You can't convert your currency. We convert $ or UAH only.`);
 	};
