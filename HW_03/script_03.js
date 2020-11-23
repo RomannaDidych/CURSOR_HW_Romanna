@@ -72,29 +72,33 @@ const  getRandomPassword = (length = 8) => {
 }
 
 const deleteLetters = (letter, str) => {
-	const arr = str.toLowerCase().split('');
+	const arr = str.split('');
+	const loverCaseArr = str.toLowerCase().split('');
 	let newArr = [];
-	for( let item of arr){
-		if(item !== letter.toLowerCase()) newArr.push(item)
+	for( let i=0; i<loverCaseArr.length; i++){
+		if(loverCaseArr[i] !== letter) {
+			newArr.push(arr[i]);
+		}
+
 	}	
 	return newArr.join('');
 };
 
 const isPalyndrom = (str) => {
-	const strWithoutSpace = deleteLetters(' ', str);
+	const strWithoutSpace = deleteLetters(' ', str).toLowerCase();
 	const reverseStr = strWithoutSpace.split('').reverse().join('');
 	return strWithoutSpace === reverseStr;
 };
 
-const deleteDuplicateLetter = (str) => {
-	let tempStr = deleteLetters(' ', str);
+const deleteDuplicateLetter = (str) => {	
+	const tempStr= str.toLowerCase();
 	let result = ''
 	for (let i = 0; i < tempStr.length; i++){
-		let currentLetter = tempStr[i];		
-		if(tempStr.indexOf(currentLetter) === tempStr.lastIndexOf(currentLetter)){			
-			result += currentLetter;
+		let letter = tempStr[i];		
+		if(tempStr.indexOf(letter) === tempStr.lastIndexOf(letter)){			
+			result += str[i];
 		}
-	}
+	};	
 	return result;	
 }
 
@@ -107,8 +111,8 @@ function №5 getRandomNumber(2,8): ${getRandomNumber(2,8)};
 function №6 countLetter("А", "абрАкадаБРА"): ${countLetter("А", "абрАкадаБРА")};
 function №7 convertCurrency('1500 UAH', 28.57): ${convertCurrency('1500 UAH', 28.57)};
 function №8 getRandomPassword(5): ${getRandomPassword(5)};
-function №9 deleteLetters('a','ayuiaramaneaea'): ${deleteLetters('a','ayuiaramaneaea')};
+function №9 deleteLetters('a','ayuiarAmaneaea'): ${deleteLetters('a','ayuiarAmaneaea')};
 function №10 isPalyndrom('Я несу гусеня'): ${isPalyndrom('Я несу гусеня')};
-function №11 deleteDuplicateLetter('Бісквіт був дуже ніжним'): ${deleteDuplicateLetter('Бісквіт був дуже ніжним')};
+function №11 deleteDuplicateLetter('БіСквіт буВ дуЖе нІжним'): ${deleteDuplicateLetter('БіСквіт буВ дуЖе нІжним')};
 `);
 
