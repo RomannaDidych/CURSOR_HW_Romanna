@@ -7,10 +7,23 @@ const getRandomArray = (length, min, max) =>{
 	return randomArr;
 };
 
-//2 getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2)
-/*const getModa = (...numbers) => {
-	const integerNumbers = numbers.filter(number =>{return Math.trunc(number) === number});	
-}*/
+//2 
+const getModa = (...numbers) => {
+	const integerNumbers = numbers.filter(number =>{return Math.trunc(number) === number});
+	let numberAndCountArr = [];	
+	let maskArr = [];	
+	for (let i=0; i<integerNumbers.length;i++){
+		const mask = integerNumbers[i];
+		if (!maskArr.includes(mask)){
+			maskArr.push(mask);		
+			const temp = integerNumbers.filter(number => {return number === mask}).length;
+			numberAndCountArr.push([mask, temp]);
+		}		  
+	};	
+	const repeats = numberAndCountArr.map((arr) => {return arr[1]});	
+	const moda = numberAndCountArr.filter(array => {return array[1] === Math.max(...repeats)}).map(arr =>{return arr[0]});
+	return moda;
+};
 
 //3
 const getAverage = (...numbers) => {
@@ -78,7 +91,7 @@ const replaceBadWords = (string) =>{
 	return arrNiceWordsOnly.join(' ');
 };
 
-//9 divideByThree("Commander") -> ["com", "man", "der"]
+//9 
 const divideByThree = (string) =>{
 	
 	stringArr = string.toLowerCase().split('').filter(char => char !== ' ');	
@@ -95,8 +108,31 @@ const divideByThree = (string) =>{
 	return dividedArr;
 };
 
+//10 generateCombinations("man")
+
+/*const  generateCombinations = (str) =>{
+	
+	const strArr = str.split('');
+	let tempArr = [], finishArr = [];
+	let tempChar;
+	for (let i=0; i<str.length; i++){
+		tempArr = str.split('');
+		tempChar = tempArr[i];
+		tempArr.splice(i,1);
+		console.log(`tempChar: ${tempChar};  tempArr: ${tempArr} `)
+	}
+
+
+
+	return finishArr;
+}
+
+console.log(generateCombinations('man'));*/
+
+
 console.log(`
 function #1 getRandomArray(10, 0, 40):   ${getRandomArray(10, 0, 40)};
+function #2 getModa(2, 14.24, 55, 11, 2, 55, 56.12, 77, 57, 55, 55, 87, 44.8, 23, 2, 56, 3, 2):  ${getModa(2, 14.24, 55, 11, 2, 55, 56.12, 77, 57, 55, 55, 87, 44.8, 23, 2, 56, 3, 2)};
 function #3 getAverage(6, 2, 55, 11, 78, 22.14, 2, 55, 77, 57, 56.12, 87, 23, 2, 56, 3, 2):   ${getAverage(6, 2, 55, 11, 78, 22.14, 2, 55, 77, 57, 56.12, 87, 23, 2, 56, 3, 2)};
 function #4 getMedian(6, 2, 55, 11, 78, 2, 55, 77, 77.5, 14.22, 57, 87, 23, 2, 56, 3, 2):    ${getMedian(6, 2, 55, 11, 78, 2, 55, 77, 77.5, 14.22, 57, 87, 23, 2, 56, 3, 2)};
 function #5 filterEvenNumbers(1, 2, 3, 4, 5, 6):    ${filterEvenNumbers(1, 2, 3, 4, 5, 6)}
@@ -104,4 +140,5 @@ function #6 countPositiveNumbers(1, -2, 3, -4, -5, 6):    ${countPositiveNumbers
 function #7 getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2):    ${getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2)};
 function #8 replaceBadWords("Are you bigshit fuck fucking kidding?"):    ${replaceBadWords("Are you bigshit fuck fucking kidding?")};
 function #9 divideByThree(" Com  mand er er"):   ${divideByThree(" Com  mand er er")} `)
+
 
