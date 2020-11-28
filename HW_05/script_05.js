@@ -11,13 +11,13 @@ const getRandomArray = (length, min, max) =>{
 const getModa = (...numbers) => {
 	const integerNumbers = numbers.filter(number =>{return Math.trunc(number) === number});
 	let numberAndCountArr = [];	
-	let maskArr = [];	
+	let uniquesArr = [];	
 	for (let i=0; i<integerNumbers.length;i++){
-		const mask = integerNumbers[i];
-		if (!maskArr.includes(mask)){
-			maskArr.push(mask);		
-			const temp = integerNumbers.filter(number => {return number === mask}).length;
-			numberAndCountArr.push([mask, temp]);
+		const unique = integerNumbers[i];
+		if (!uniquesArr.includes(unique)){
+			uniquesArr.push(unique);		
+			const count = integerNumbers.filter(number => {return number === unique}).length;
+			numberAndCountArr.push([unique, count]);
 		}		  
 	};	
 	const repeats = numberAndCountArr.map((arr) => {return arr[1]});	
@@ -108,26 +108,41 @@ const divideByThree = (string) =>{
 	return dividedArr;
 };
 
-//10 generateCombinations("man")
+//10 
+const generateCombinations = (word) =>{
 
-/*const  generateCombinations = (str) =>{
-	
-	const strArr = str.split('');
-	let tempArr = [], finishArr = [];
-	let tempChar;
-	for (let i=0; i<str.length; i++){
-		tempArr = str.split('');
-		tempChar = tempArr[i];
-		tempArr.splice(i,1);
-		console.log(`tempChar: ${tempChar};  tempArr: ${tempArr} `)
+	const insertLetter = (letter, str, ind) =>{
+		const startStr = str.slice(0,ind);
+		const endStr = str.slice(ind);
+		return startStr + letter + endStr;
+	}; //console.log(insertLetter('A', 'aaaa', 2)); // 'aaAaa'
+
+	const getChangeLetterPositionsArr = (letter, string) => {	
+		let resultArr = [];
+		for(let i=0; i<=string.length; i++){
+			resultArr.push(insertLetter(letter,string, i))		
+		}
+		return resultArr
+	}; //console.log(getChangeLetterPositionsArr('A', 'abc')); //['Aabc', 'aAbc', 'abAc', 'abcA']
+
+
+	if (word.length ===1) return [word];
+	const wordLength = word.length;	
+	let result = [word[0]];
+	for(let i=1; i<wordLength; i++){
+		let char = word[i];
+		let temp = [];
+		console.log(`temp: ${temp};  result: ${result}; result.length: ${result.length}`);
+		for(let j=0; j<result.length;j++){			
+			temp = temp.concat(getChangeLetterPositionsArr(char, result[j]));			
+		}		
+		result = temp;		
 	}
-
-
-
-	return finishArr;
+	return result;
 }
+console.log(generateCombinations('abcd'));
 
-console.log(generateCombinations('man'));*/
+
 
 
 console.log(`
@@ -139,6 +154,8 @@ function #5 filterEvenNumbers(1, 2, 3, 4, 5, 6):    ${filterEvenNumbers(1, 2, 3,
 function #6 countPositiveNumbers(1, -2, 3, -4, -5, 6):    ${countPositiveNumbers(1, -2, 3, -4, -5, 6)}
 function #7 getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2):    ${getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2)};
 function #8 replaceBadWords("Are you bigshit fuck fucking kidding?"):    ${replaceBadWords("Are you bigshit fuck fucking kidding?")};
-function #9 divideByThree(" Com  mand er er"):   ${divideByThree(" Com  mand er er")} `)
+function #9 divideByThree(" Com  mand er er"):   ${divideByThree(" Com  mand er er")};
+function #10 generateCombinations('abcd'):   ${generateCombinations('abcd')}
+`)
 
 
