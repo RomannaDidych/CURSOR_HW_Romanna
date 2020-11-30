@@ -7,29 +7,12 @@ const girlsNames = ["Олена", "Іра", "Світлана"];
 const boysNames = ["Олександр", "Ігор", "Олексій"]
 const minMark = 1, maxMark = 5;
 
-const combineNewArray = (arr1, arr2) => {
-	let resultArr = [];
-	for(let i = 0; i<arr1.length; i++){
-		resultArr.push([arr1[i], arr2[i]])
-	}
-	return resultArr;
-};
-
-const joinElements = (arr) =>{
-	let newArr = [];
-	for (let item of arr){
-		newArr.push(`${item[0]} і ${item[1]}`)
-	}
-	return newArr;
-}
+const combineNewArray = (arr1, arr2) => arr1.map((item, ind) => [item, arr2[ind]]);
+const joinElements = (arr) => arr.map(paire => `${paire[0]} і ${paire[1]}`)
 
 const getPairs = (arr, namesM, namesW) => {
-	let gerlsArr = [];
-	let boysArr = [];
-	for(let i = 0; i < arr.length; i++){		
-		if (namesM.includes(arr[i])) boysArr.push(arr[i]);
-		if (namesW.includes(arr[i])) gerlsArr.push(arr[i]);		
-	};
+	const gerlsArr = arr.filter(name => namesW.includes(name));
+	const boysArr = arr.filter(name => namesM.includes(name));
 	return combineNewArray(boysArr, gerlsArr)
 }; 
 
