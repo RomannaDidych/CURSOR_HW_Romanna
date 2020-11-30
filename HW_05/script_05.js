@@ -9,7 +9,7 @@ const getRandomArray = (length, min, max) =>{
 
 //2 
 const getModa = (...numbers) => {
-	const integerNumbers = numbers.filter(number =>{return Math.trunc(number) === number});
+	const integerNumbers = numbers.filter(number =>   Number.isInteger(number));
 	let numberAndCountArr = [];	
 	let uniquesArr = [];	
 	for (let i=0; i<integerNumbers.length;i++){
@@ -27,20 +27,14 @@ const getModa = (...numbers) => {
 
 //3
 const getAverage = (...numbers) => {
-	let integerNumbers = numbers.filter(number =>{return Math.trunc(number) === number});	
+	const integerNumbers = numbers.filter(number => Number.isInteger(number));	
 	return (integerNumbers.reduce((sum, number) => sum + number, 0))/integerNumbers.length;
 };
 
 //4
 const getMedian = (...numbers) => {	
-	const integerNumbers = numbers.filter(number =>{return Math.trunc(number) === number});
-	function compareNumbers(a, b) {
-	  if (a > b) return 1;
-	  if (a == b) return 0;
-	  if (a < b) return -1;
-	};
-
-	integerNumbers.sort(compareNumbers);	
+	const integerNumbers = numbers.filter(number =>   Number.isInteger(number));
+	integerNumbers.sort((intA, intB) => intA - intB);;	
 	const medianIndex = Math.floor(integerNumbers.length/2);
 	let median;	
 	if (integerNumbers.length % 2) {
@@ -53,18 +47,18 @@ const getMedian = (...numbers) => {
 	
 //5
 const  filterEvenNumbers = (...numbers) => {
-	return numbers.filter(number =>{return number%2 === 1})
+	return numbers.filter(number => number%2 === 1)
 };
 
 //6 
 const countPositiveNumbers = (...numbers) =>{
-	let positiveNumbers = numbers.filter(number => {return number>0});
+	let positiveNumbers = numbers.filter(number => number>0);
 	return positiveNumbers.length;
 };
 
 //7
 const getDividedByFive = (...numbers) => {
-	return numbers.filter(number =>{return number%5 === 0})
+	return numbers.filter(number => number%5 === 0)
 };
 
 //8
@@ -131,8 +125,7 @@ const generateCombinations = (word) =>{
 	let result = [word[0]];
 	for(let i=1; i<wordLength; i++){
 		let char = word[i];
-		let temp = [];
-		console.log(`temp: ${temp};  result: ${result}; result.length: ${result.length}`);
+		let temp = [];		
 		for(let j=0; j<result.length;j++){			
 			temp = temp.concat(getChangeLetterPositionsArr(char, result[j]));			
 		}		
@@ -140,7 +133,7 @@ const generateCombinations = (word) =>{
 	}
 	return result;
 }
-console.log(generateCombinations('abcd'));
+
 
 
 
