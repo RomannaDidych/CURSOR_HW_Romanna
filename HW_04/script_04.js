@@ -14,25 +14,19 @@ const getPairs = (arr, namesM, namesW) => {
 	const gerlsArr = arr.filter(name => namesW.includes(name));
 	const boysArr = arr.filter(name => namesM.includes(name));
 	return combineNewArray(boysArr, gerlsArr)
-}; 
-
-const getMarksForPears = (pearsArr) => {
-	let marksArr = [];
-	for(let i = 0; i < pearsArr.length; i++){
-		marksArr.push(Math.floor(Math.random() * (maxMark- minMark) + minMark));
-	}
-	return combineNewArray(pearsArr, marksArr);
 };
+
+const getMarksForPairs = (pairsArr) => pairsArr.map(pairs => [pairs,  Math.floor(Math.random() * (maxMark- minMark)) + minMark])
 
 const pairs = getPairs(students, boysNames, girlsNames);
 const themesForPairs = combineNewArray(joinElements(pairs), themes);
 const MarksForStudents = combineNewArray(students, marks);
-const marksForPears = getMarksForPears(joinElements(pairs));
+const marksForPairs = getMarksForPairs(joinElements(pairs));
 
 console.log(pairs);
 console.log(themesForPairs);
 console.log(MarksForStudents);
-console.log(marksForPears);	
+console.log(marksForPairs);	
 console.log(`
 	we've worked with basic data:
 	array of students: ${students};
