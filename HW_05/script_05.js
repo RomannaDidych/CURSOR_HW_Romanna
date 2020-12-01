@@ -1,11 +1,5 @@
 //1
-const getRandomArray = (length, min, max) =>{
-	let randomArr = [];
-	for(let i = 0; i < length; i++){
-		randomArr.push(Math.floor(Math.random() * (max - min + 1) + min));
-	};
-	return randomArr;
-};
+const getRandomArray = (arrlength, min, max) => Array.from({length: arrlength}).map(number => Math.floor(Math.random() * (max - min + 1) + min));
 
 //2 
 const getModa = (...numbers) => {
@@ -46,42 +40,35 @@ const getMedian = (...numbers) => {
 }
 	
 //5
-const  filterEvenNumbers = (...numbers) => {
-	return numbers.filter(number => number%2 === 1)
-};
+const  filterEvenNumbers = (...numbers) => numbers.filter(number => number%2 === 1);
 
 //6 
-const countPositiveNumbers = (...numbers) =>{
-	let positiveNumbers = numbers.filter(number => number>0);
-	return positiveNumbers.length;
-};
+const countPositiveNumbers = (...numbers) => numbers.filter(number => number>0).length;
 
 //7
-const getDividedByFive = (...numbers) => {
-	return numbers.filter(number => number%5 === 0)
-};
+const getDividedByFive = (...numbers) =>  numbers.filter(number => number%5 === 0);
 
 //8
-const badWords = ['shit', 'fuck'];
+
 const replaceBadWords = (string) =>{
-	const changeBadWord = (word, startInd, endInd) => {		
-		return  word.split('').
-				map((char,index) => {
-					if((index >= startInd) && (index <=endInd)) char = '*';
-					return char;
-				}).
-				join('');
-	};
+	const badWords = ['shit', 'fuck'];
+	const changeBadWord = (word, startInd, endInd) => 
+							word.split('').	
+								map((char,index) => {
+									if((index >= startInd) && (index <=endInd)) char = '*';
+									return char;}).
+								join('');
+	
 	let arrWithBadWords = string.split(' ');
 	let arrNiceWordsOnly = [];
-	for (let i=0;i<badWords.length; i++){
-		arrNiceWordsOnly = arrWithBadWords.map(word =>{			
-			const bedInd = word.indexOf(badWords[i]); 
-			if(bedInd !== -1) word = changeBadWord(word, bedInd, bedInd + badWords[i].length -1);			 
-			return word;
+	badWords.forEach((badWord,badInd) =>{
+		arrNiceWordsOnly = arrWithBadWords.map(word =>{
+			const index = word.indexOf(badWord);		 
+			if(index !== -1) word = changeBadWord(word, index, index + badWord.length -1);			 
+			return word
 		});
 		arrWithBadWords = arrNiceWordsOnly;
-	};
+	});	
 	return arrNiceWordsOnly.join(' ');
 };
 
@@ -89,17 +76,10 @@ const replaceBadWords = (string) =>{
 const divideByThree = (string) =>{
 	
 	stringArr = string.toLowerCase().split('').filter(char => char !== ' ');	
-	const divider = 3;
-	let dividedArr = [];
-	while(stringArr.length >= divider){
-		let shortArr = [];
-		for(let i=0; i< divider; i++ ){
-			shortArr.push(stringArr.shift())
-		}
-		dividedArr.push(shortArr.join(''));		
-	};
-	if(stringArr.length > 0) dividedArr.push(stringArr.join(''));
-	return dividedArr;
+	const divider = 3;	
+	let dividedArr = Array.from({length: Math.floor(stringArr.length/divider)}).map(shortStr => stringArr.splice(0, divider).join(''));
+	if(stringArr.length > 0) dividedArr.push(stringArr.join(''));	
+	return dividedArr;	
 };
 
 //10 
@@ -111,13 +91,8 @@ const generateCombinations = (word) =>{
 		return startStr + letter + endStr;
 	}; //console.log(insertLetter('A', 'aaaa', 2)); // 'aaAaa'
 
-	const getChangeLetterPositionsArr = (letter, string) => {	
-		let resultArr = [];
-		for(let i=0; i<=string.length; i++){
-			resultArr.push(insertLetter(letter,string, i))		
-		}
-		return resultArr
-	}; //console.log(getChangeLetterPositionsArr('A', 'abc')); //['Aabc', 'aAbc', 'abAc', 'abcA']
+	const getChangeLetterPositionsArr = (letter, string) => Array.from({length: string.length+1}).map((str, i) => insertLetter(letter,string, i))
+	 //console.log(getChangeLetterPositionsArr('A', 'abc')); //['Aabc', 'aAbc', 'abAc', 'abcA']
 
 
 	if (word.length ===1) return [word];
