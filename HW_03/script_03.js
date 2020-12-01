@@ -1,11 +1,4 @@
-const getMaxDigit = number => {
-	let maxDigit = 0;
-	while (number >= 1){
-		  if (maxDigit < number%10) maxDigit = number%10;		  
-		  number = Math.trunc(number/10);
-	};
-	return maxDigit;
-}
+const getMaxDigit = number => Math.max(... Array.from(String(number)).map((item) => parseInt(item)));
 
 const calculatePower = (num, exp) => {
 	let result = 1;	
@@ -22,32 +15,18 @@ const calculatePower = (num, exp) => {
 	return result;
 };
 
-const formateName = (name) => {	
-	return name.charAt(0).toUpperCase() + name.toLowerCase().slice(1);
-};
+const formateName = (name) => name.charAt(0).toUpperCase() + name.toLowerCase().slice(1);;
 
 const countSalaryWithoutTaxes = (salary, ...taxes) => {
-	let sumTaxes = 0;	
-	for(let tax of taxes){						
-		sumTaxes += parseFloat(tax);		
-	};
+	let sumTaxes = taxes.reduce((sum, tax) => sum += parseFloat(tax), 0);
 	return salary - salary*sumTaxes/100;
 }
 
-const getRandomNumber = (min, max) => {
-	return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
-const countLetter = (letter, str) =>{
-	const arr = str.toLowerCase().split('');
-	let counter = 0;
-	for (let item of arr){
-		if(item === letter.toLowerCase()){			
-		 	counter += 1;
-		 };
-	};
-	return counter;
-}
+
+const countLetter = (letter, str) => str.toLowerCase().split('').filter(char => char === letter.toLowerCase()).length;
+
 
 const convertCurrency = (cash, rate) =>{	
 	let convertedCash;
@@ -63,26 +42,9 @@ const convertCurrency = (cash, rate) =>{
 	};
 };
 
-const  getRandomPassword = (length = 8) => {
-	let password = [];
-	for (let i = 0; i<length; i++){		
-		password.push(Math.floor(Math.random() * 10));
-	};
-	return password.join('');
-}
+const  getRandomPassword = (passwordLength = 8) => Array.from({length:passwordLength}).map(number => Math.floor(Math.random() * 10))
 
-const deleteLetters = (letter, str) => {
-	const arr = str.split('');
-	const loverCaseArr = str.toLowerCase().split('');
-	let newArr = [];
-	for( let i=0; i<loverCaseArr.length; i++){
-		if(loverCaseArr[i] !== letter) {
-			newArr.push(arr[i]);
-		}
-
-	}	
-	return newArr.join('');
-};
+const deleteLetters = (letter, str)	=> str.split('').filter(char => char !== letter).join('');
 
 const isPalyndrom = (str) => {
 	const strWithoutSpace = deleteLetters(' ', str).toLowerCase();
@@ -90,16 +52,9 @@ const isPalyndrom = (str) => {
 	return strWithoutSpace === reverseStr;
 };
 
-const deleteDuplicateLetter = (str) => {	
-	const tempStr= str.toLowerCase();
-	let result = ''
-	for (let i = 0; i < tempStr.length; i++){
-		let letter = tempStr[i];		
-		if(tempStr.indexOf(letter) === tempStr.lastIndexOf(letter)){			
-			result += str[i];
-		}
-	};	
-	return result;	
+const deleteDuplicateLetter = (str) => {
+	tempArr = str.toLowerCase().split('')
+	return tempArr.filter((letter) => tempArr.indexOf(letter) === tempArr.lastIndexOf(letter)).join('')	
 }
 
 console.log(`
