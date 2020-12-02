@@ -26,3 +26,21 @@ const students = [{
   }
 }];
 
+const getAverage = (...numbers) => {
+  const integerNumbers = numbers.filter(number => Number.isInteger(number));  
+  return (integerNumbers.reduce((sum, number) => sum + number, 0))/integerNumbers.length;
+};
+
+//1
+const getSubjects = (student) => Object.keys(student.subjects).map(subject => subject.charAt(0).toUpperCase() + subject.slice(1).split('_').join(' '));
+
+//2
+const getAverageMark = student =>{
+  let allMarks = Object.values(student.subjects).reduce((totalArr, arr) => totalArr.concat(arr), []);
+  return getAverage(...allMarks).toFixed(2);
+}
+
+console.log(`
+  function #1 getSubjects(students[0]): ${getSubjects(students[0])};
+  function #2 getAverageMark(students[0]): ${getAverageMark(students[0])};
+   `)
