@@ -40,7 +40,51 @@ const getAverageMark = student =>{
   return getAverage(...allMarks).toFixed(2);
 }
 
+/*function getAverageMark(student){
+  let allMarks = Object.values(this.subjects).reduce((totalArr, arr) => totalArr.concat(arr), []);
+  return getAverage(...allMarks).toFixed(2);
+}*/
+
+//3 getStudentInfo(students[0]) --> { "course": 3, "name": "Tanya", "averageMark": 3.79}
+const getStudentInfo = student =>{ 
+  const studentInfo = {};
+  studentInfo.course = student.course;
+  studentInfo.name = student.name;
+  studentInfo.averageMark = getAverageMark(student);
+  return studentInfo;
+}
+console.log(getStudentInfo(students[1]))
+
+//4 
+const getStudentsNames = arrOfStudents => arrOfStudents.map(obj => obj.name).sort();
+
+//5 getBestStudent(students) --> "Anton"
+
+/*const getBestStudent = (studentsArr) => {
+  const infoArr = studentsArr.map(obj =>{name: obj.name, averageMark:obj.averageMark})
+  return infoArr
+}
+console.log(getBestStudent(students))*/
+
+
+//6 calculateWordLetters("тест") --> { "т": 2, "е": 1, "с": 1 }
+const calculateWordLetters = word => {
+  const wordArr = word.split('');
+  const letterAndCount = wordArr.map((letter) => [letter, wordArr.filter(char => char === letter).length])
+  const wordObj = {}
+  letterAndCount.forEach(arr => {if(!(arr[0] in wordObj)) wordObj[arr[0]] = arr[1];})
+  return wordObj
+}
+
+
+
+
 console.log(`
   function #1 getSubjects(students[0]): ${getSubjects(students[0])};
   function #2 getAverageMark(students[0]): ${getAverageMark(students[0])};
+  function #3 getStudentInfo(students[1]): ${getStudentInfo(students[1])};
+  function #4 getStudentsNames(students): ${getStudentsNames(students)};
+  function #6 calculateWordLetters("ламбада"): ${calculateWordLetters("ламбада")};
    `)
+
+
