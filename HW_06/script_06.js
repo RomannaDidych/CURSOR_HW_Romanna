@@ -46,7 +46,7 @@ const getStudentInfo = student =>{
   const studentInfo = {};
   studentInfo.course = student.course;
   studentInfo.name = student.name;
-  studentInfo.averageMark = +getAverageMark(student);
+  studentInfo.averageMark = getAverageMark(student);
   return studentInfo;
 }
 
@@ -68,7 +68,7 @@ const calculateWordLetters = word => {
   letterAndCount.forEach(arr => {if(!(arr[0] in wordObj)) wordObj[arr[0]] = arr[1];})
   return wordObj
 }
-console.log(calculateWordLetters("ламбада"))
+
 
 
 
@@ -76,10 +76,10 @@ console.log(calculateWordLetters("ламбада"))
 console.log(`
   function #1 getSubjects(students[0]): ${getSubjects(students[0])};
   function #2 getAverageMark(students[0]): ${getAverageMark(students[0])};
-  function #3 getStudentInfo(students[1]): ${getStudentInfo(students[1])};
+  function #3 getStudentInfo(students[1]): ${JSON.stringify(getStudentInfo(students[1]))};
   function #4 getStudentsNames(students): ${getStudentsNames(students)};
   function #5 getBestStudent(students): ${getBestStudent(students)};
-  function #6 calculateWordLetters("ламбада"): ${calculateWordLetters("ламбада")};
+  function #6 calculateWordLetters("ламбада"): ${JSON.stringify(calculateWordLetters("ламбада"))};
    `)
 
  
