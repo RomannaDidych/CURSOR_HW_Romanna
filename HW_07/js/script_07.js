@@ -27,11 +27,11 @@ function getMySalary(){
 	const maxSalary = 2000
 	inf.salary = Math.floor((Math.random() * (maxSalary - minSalary +1)) + minSalary);
 	inf.taxes = +(inf.salary * this.tax).toFixed(2);
-	inf.profit = inf.salary - inf.taxes;
+	inf.profit = +(inf.salary - inf.taxes).toFixed(2);
 	console.log(`function #4 getMySalary(ukraine): ${JSON.stringify(inf)};`);
 };
 
-let idInt = setInterval(() => getMySalary.call(ukraine), 10000);
-setTimeout(() => clearInterval(idInt), 60000);                  
+setInterval(() => getMySalary.call(ukraine), 10000);
+                  
 
 
