@@ -1,46 +1,25 @@
 html,
-body{
-	height: 100%;
+body{	
 	margin: 0;
 	padding: 0;	
 }
 .wrapper{
-	display: flex;
-	flex-direction: column;
+	width: 100%;
 	min-height: 100vh;
-}
-.fullscreen{
-	min-height: 100vh;
-	min-width: 100vw;
 	display: flex;
-	background-image: url(../img/bg_1.jpg);
-	background-size: cover;
-}
-.fullscreen__body {
-	width: 500px;
-	margin: 0 auto;
-	display: flex;
-	flex-direction: column;
+	justify-content: center;
 	align-items: center;
-	padding: 20% 0;
 }
-.fullscreen__puzzle {
+.puzzleArea {
 	width: 250px;
+	margin: 0 auto;
 	display: flex;
 	flex-wrap: wrap;
 }
-.piece {
+.block {
 	width: 50px;
 	height: 50px;
 	border: .5px solid lightgray;
 	box-sizing: border-box;
 }
-.fullscreen__buttons {
-	width: 250px;
-	display: flex;
-	justify-content: space-around;
-}
-.fullscreen__button {}
-.more {}
-.less {}
 

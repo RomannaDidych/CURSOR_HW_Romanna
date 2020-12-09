@@ -1,29 +1,30 @@
-//generateBlocks();
-//generateBlocksInterval();
+
 const colors = ['red', 'blue', 'green', 'orange', 'white', 'purple', 'yellow', 'magenta', 'brown', 'lightgreen']
-const puzzlesArea = document.querySelector('.fullscreen__puzzle');
-const piecesNumber = 25;
+const puzzlesArea = document.querySelector('.puzzleArea');
+const blocksNumber = 25;
+
 const getRandomColor = () => {
 	const index = Math.floor(Math.random() * colors.length);
 	return colors[index];
 }
 
-const generatePiece = () => {
-	const piece = document.createElement('div');
-	piece.classList.add('piece');
-	piece.style.backgroundColor = getRandomColor();	
-	return piece;
+const generateBlock = () => {
+	const block = document.createElement('div');
+	block.classList.add('block');
+	block.style.backgroundColor = getRandomColor();	
+	return block;
 }
-//console.log(generateBlock());
+
 function generateBlocks(number){
 	for(let i=0; i<number;i++){
-		puzzlesArea.append(generatePiece())
+		puzzlesArea.append(generateBlock())
 	}
 };
-generateBlocks(piecesNumber);
-const pieces = document.querySelectorAll('.piece');
+generateBlocks(blocksNumber);
 
-let intID = setInterval(() => pieces.forEach((piece) => piece.style.backgroundColor = getRandomColor()),1000);
+const blocks = document.querySelectorAll('.block');
+const delay = 1000;
+let intID = setInterval(() => blocks.forEach((block) => block.style.backgroundColor = getRandomColor()),delay);
 	
  
 
