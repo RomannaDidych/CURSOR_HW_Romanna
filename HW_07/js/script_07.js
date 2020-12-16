@@ -21,17 +21,18 @@ function getTotalTaxes(){
 console.log(`function #3 getTotalTaxes.call(latvia): ${getTotalTaxes.call(latvia)};`)
 
 //4
-function getMySalary(){
+function getMySalary(country){
 	const inf = {};
 	const minSalary = 1500;
-	const maxSalary = 2000
-	inf.salary = Math.floor((Math.random() * (maxSalary - minSalary +1)) + minSalary);
-	inf.taxes = +(inf.salary * this.tax).toFixed(2);
-	inf.profit = +(inf.salary - inf.taxes).toFixed(2);
-	console.log(`function #4 getMySalary(ukraine): ${JSON.stringify(inf)};`);
+	const maxSalary = 2000;	
+	setInterval(() => {
+		inf.salary = Math.floor((Math.random() * (maxSalary - minSalary +1)) + minSalary);
+		inf.taxes = +(inf.salary * country.tax).toFixed(2);
+		inf.profit = +(inf.salary - inf.taxes).toFixed(2);
+		console.log(inf)},10000);
 };
 
-setInterval(() => getMySalary.call(ukraine), 10000);
+getMySalary(ukraine);
                   
 
 
