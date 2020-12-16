@@ -1,4 +1,4 @@
-const buttonArr =  Array.from(document.querySelectorAll('.button'));
+const buttonArr =  Array.from(document.querySelectorAll('.button')); 
 const melodyArr = Array.from(document.querySelectorAll('.melody'));
 
 const removeActive = () => buttonArr.forEach(btn => btn.classList.remove('active'));
@@ -15,11 +15,13 @@ buttonArr.forEach((btn) => btn.addEventListener('click', connectBtnWithAudio));
 
 document.addEventListener('keydown', connectPressedBtnWithAudio);
 	function connectPressedBtnWithAudio(e){		
-		removeActive();
-		const btnKey = e.key;		
-		const pressedBtn = buttonArr.filter(btn => btn.getAttribute('data-btnName') === btnKey)[0];
+		const btnCode = e.code;				
+		const condition = buttonArr.map(li => li.getAttribute('data-btnName')).includes(btnCode);		
+		if (!condition) return;
+		removeActive();		
+		const pressedBtn = buttonArr.filter(btn => btn.getAttribute('data-btnName') === btnCode)[0];
 		pressedBtn.classList.add('active');		
-		selectAudio(btnKey).play();
+		selectAudio(btnCode).play();		
 	};
 
 
