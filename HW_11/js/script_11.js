@@ -19,7 +19,7 @@ async function getRandomChinese(length){
 	};
 	return chineseStr;	
 };
-getRandomChinese(4).then((result) => console.log('hahaha' + result));
+getRandomChinese(4).then((result) => console.log(result));
 
 
 
