@@ -6,16 +6,13 @@ body{
 }
 .wrapper{
 	max-width: 100%;
-	min-height: 100vh;
-	/*display: flex;
-	justify-content: center;
-	align-items: center;*/
+	min-height: 100vh;	
 	background-image: url(../img/bg_2.jpg);
 	background-size: cover;
 	padding: 5%;
 }
 .content {
-	width: 80%;
+	width: 85%;
 	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
@@ -27,9 +24,6 @@ body{
 	display: flex;
 	justify-content: space-between;
 }
-
-
-
 .form {
 	width: 50%;
 	display: flex;
@@ -44,7 +38,6 @@ body{
 	font-size: 30px;
 	color: gold;
 }
-
 .navigation__part {
 	width: 50%;
 	display: flex;
@@ -57,37 +50,14 @@ body{
 .planetesInf {
 	width: 40%;
 }
-/*.form {}
-.form_chackbox {}
-.form__button {}
-.mainarea {}
-.mainButton {}*/
-
-.wrapper {}
-.content {}
-.title {}
-.navigation {}
-.peopleInf {}
-.navigation__part {}
-.subtitle {}
-.flexStr
-.form {}
-.form_input {}
-.form__button {}
-.language {}
-.mainButton {}
-.planetesInf {}
-.planetbutton {}
-.planet__link {}
 .mainArea {
 	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: flex-start;
-	z-index: 1;
+	justify-content: flex-start;	
 }
 .heroCard{
-	width: 200px;
+	width: 270px;
 	height: 200px;
 	margin: 20px;
 	padding: 20px;
@@ -95,25 +65,24 @@ body{
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
-	background-color: silver;
-	z-index: 3;
+	background-color: #00004d;
+	color: gold;	
 }
 .heroName{
 	display: inline-block;
 	font-size: 28px;
 	font-weight: 700;
-	color: #000;
-
+	text-align: center;
 }
 .heroYear{
 	display: inline-block;
-	font-size: 20px;
-	/*font-weight: 700;*/
-	color: #000;
+	font-size: 20px;	
 }
 .heroGender{
 	display: inline-block;
-	font-size: 20px;
-	/*font-weight: 700;*/
-	color: #000;
+	font-size: 20px;	
+}
+.planetbutton{
+	display: inline-block;
+	width: 100px;
 }

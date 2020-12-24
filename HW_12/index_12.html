@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="style/style_12.css">
 	<title>HW 12 (Server)</title>
 </head>
+<body>
 	<div class="wrapper">
 		<section class="content">
 			<h1 class="title">Star wars</h1>
@@ -15,7 +16,7 @@
 				<div class="peopleInf navigation__part">
 					<h2 class="subtitle">information about characters</h2>					
 						<form action="" class="form">
-							<label for="episode" class="episodes">
+							 <label for="episode" class="episodes">
 								select film:
 								<select name="episode" id="episode">
 									<option class="film" value="1">1</option>
@@ -26,40 +27,28 @@
 									<option class="film" value="6">6</option>
 								</select>							
 							</label>						
-							<!-- <label for="language" class="languages">
+							 <label for="language" class="languages">
 								select language:
 								<select name="language" id="language">
 									<option value="English" selected>English</option>
 									<option value="wookiee">wookiee</option>
 								</select>
-							</label> -->
-							<!-- <button type="submit" class="mainButton">get information</button> -->
-							<button  class="mainButton">get information</button>
-						</form>	
-												
+							</label>							
+							<button type="button" class="mainButton">get information</button>
+						</form>												
 				</div>
 				<div class="planetesInf navigation__part">
-					<h2 class="subtitle">information about planet</h2>
-					<div class="planetbutton">
-						<a href="" class="planet__link"> next <span> &#62; &#62;</span></a>
-					</div>
+					<h2 class="subtitle">information about planets</h2>
+					<button class="planetbutton button">next  <span> &#62; &#62;</span></button>					
 				</div>
-			</nav>
-			
+			</nav>			
 			<div class="mainArea"></div>			
-		</section>
-		
+		</section>		
 	</div>
-<body>
-		  
+			  
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script src="js/script_12.js"></script>
 </body>
 </html>
 
-			<!-- <p><input type="radio" name="film" value="1" class="form_input">episode 1</p>
-							<p><input type="radio" name="film" value="2" class="form_input" checked>episode 2</p>
-							<p><input type="radio" name="film" value="3" class="form_input">episode 3</p>
-							<p><input type="radio" name="film" value="4" class="form_input">episode 4</p>
-							<p><input type="radio" name="film" value="5" class="form_input">episode 5</p>
-							<p><input type="radio" name="film" value="6" class="form_input">episode 6</p> -->
+			
