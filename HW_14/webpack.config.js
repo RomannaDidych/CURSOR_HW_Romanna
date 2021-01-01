@@ -1,3 +1,4 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
@@ -12,7 +13,17 @@ module.exports = {
   		test: /\.js$/,
   		exclude: /node_modules/,
   		loader: 'babel-loader'
+  	}, {
+  		test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
   	}]
 
+  },
+ //plugins: [new HtmlWebpackPlugin()]
+ devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 9000,
+    bonjour: true
   }
 }
