@@ -1,0 +1,34 @@
+.buttons {
+	display: flex;
+	justify-content: space-between;
+	width: 60%;
+	margin-top: 50px;
+}
+
+.button {
+	width: 9%;
+	padding: 10px 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;	
+	background-color: rgba(0, 64, 128, .6);
+	border: 3px solid #004080;
+	border-radius: 5%;
+	box-sizing: border-box;
+	font-size: 30px;
+}
+
+.button.active{	
+	box-shadow: 0 0 10px 10px #004080;
+	background-color: rgba(0, 64, 128, 0.3);	
+	border: 0px;
+	font-size: 34px;
+}
+.button__title {
+	margin-top: 10px;
+	font-size: 12px;
+	font-weight: 700;
+	font-family: arial;
+	text-transform: uppercase;
+}
